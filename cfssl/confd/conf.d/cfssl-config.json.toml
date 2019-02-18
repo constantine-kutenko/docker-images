@@ -1,0 +1,6 @@
+[template]
+src = "cfssl-config.json.tmpl"
+dest = "cfssl-config.json"
+keys = [
+  "/cfssl/auth/string"
+]

@@ -1,0 +1,23 @@
+---
+
+version: '3.2'
+
+#
+#
+#
+
+services:
+  cfssl:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: cfssl
+    environment:
+      - CERT_REPO_URL=${CERT_REPO_URL:-git@gitlab.example.com:devops/intermediate-ca.git}
+      - CERT_REPO_BRANCH=${CERT_REPO_BRANCH:-master}
+      - CERT_REPO_SSH_KEY=${CERT_REPO_SSH_KEY}
+      - CFSSL_AUTH_STRING=${CFSSL_AUTH_STRING}
+#    command: tail -f /dev/null
+    ports:
+      - target: 8888
+        protocol: tcp

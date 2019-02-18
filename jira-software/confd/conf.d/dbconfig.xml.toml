@@ -1,0 +1,6 @@
+[template]
+src = "dbconfig.xml.tmpl"
+dest = "/var/lib/jira/dbconfig.xml"
+keys = [
+  "/jira"
+]

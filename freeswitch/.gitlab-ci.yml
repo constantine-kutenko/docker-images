@@ -1,0 +1,26 @@
+---
+
+#
+#
+#
+
+stages:
+  - build
+
+build-container:
+  stage: build
+  script:
+    - BUILD_ID=$(docker build
+        --pull
+        --quiet
+        --shm-size=256M
+        --tag registry.dc1.example.com/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}
+        --tag registry.dc2.example.com/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}
+        --file docker/Dockerfile .)
+    - docker push registry.dc1.example.com/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}
+    - docker push registry.dc2.example.com/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}
+    - docker rmi -f ${BUILD_ID}
+  tags:
+    - shell
+    - builder
+    - uk

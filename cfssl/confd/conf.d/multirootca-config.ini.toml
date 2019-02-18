@@ -1,0 +1,9 @@
+[template]
+src = "multirootca-config.ini.tmpl"
+dest = "multirootca-config.ini"
+keys = [
+  "/cfssl/ca/key/scheme",
+  "/cfssl/ca/key/name",
+  "/cfssl/ca/crt/name",
+  "/cfssl/config/name"
+]

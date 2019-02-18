@@ -1,0 +1,4 @@
+[default]
+private = {{ getv "/cfssl/ca/key/scheme" "file" }}://ca/{{ getv "/cfssl/ca/key/name" "ca.key" }}
+certificate = ca/{{ getv "/cfssl/ca/crt/name" "ca.crt" }}
+config = {{ getv "/cfssl/config/name" "cfssl-config.json" }}

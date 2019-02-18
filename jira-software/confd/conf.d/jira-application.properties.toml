@@ -1,0 +1,6 @@
+[template]
+src = "jira-application.properties.tmpl"
+dest = "/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/jira-application.properties"
+keys = [
+  "/jira/data"
+]

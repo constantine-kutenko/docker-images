@@ -1,0 +1,6 @@
+[template]
+src = "confluence-init.properties.tmpl"
+dest = "/opt/atlassian/confluence/confluence/WEB-INF/classes/confluence-init.properties"
+keys = [
+  "/confluence/data"
+]

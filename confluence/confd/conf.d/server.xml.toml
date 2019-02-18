@@ -1,0 +1,6 @@
+[template]
+src = "server.xml.tmpl"
+dest = "/opt/atlassian/confluence/conf/server.xml"
+keys = [
+  "/tomcat"
+]
