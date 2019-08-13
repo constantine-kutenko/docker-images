@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  asterisk:
+    image: asterisk
+    container_name: asterisk
+    hostname: asterisk
+    environment:
+      ENVIRONMENT: development
+    network_mode: "host"
+    ports:
+     - "5060:5060/udp"
+     - "5060:5060/tcp"
+     - "10000-10099:10000-10099/udp"
+     - "8088:8088"
+     - "8089:8089"
+    restart: on-failure
+    volumes:
+      - /var/lib/asterisk:/var/lib/asterisk
+      - /etc/asterisk:/etc/asterisk
+      - /var/spool/asterisk:/var/spool/asterisk
+      - /var/run/asterisk:/var/run/asterisk
+    command: ["/usr/sbin/asterisk", "-vvvdddf", "-T", "-W", "-U", "asterisk", "-p", "-n"]
